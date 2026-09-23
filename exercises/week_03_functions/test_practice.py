@@ -1,6 +1,7 @@
 """ACU CSE 101 - Automated Unit Tests for Week 03 Practice."""
 
 import pytest
+
 from exercises.week_03_functions.practice import (
     do_twice,
     hypotenuse,

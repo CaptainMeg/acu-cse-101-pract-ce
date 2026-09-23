@@ -3,8 +3,8 @@
 Think Python: Chapter 3
 """
 
-from collections.abc import Callable
 import math
+from collections.abc import Callable
 from typing import Any
 
 

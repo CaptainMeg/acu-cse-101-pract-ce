@@ -1,6 +1,7 @@
 """ACU CSE 101 - Automated Unit Tests for Week 02 Practice."""
 
 import pytest
+
 from exercises.week_02_variables.practice import (
     calculate_arrival_time,
     calculate_bookstore_cost,

@@ -1,7 +1,9 @@
 """ACU CSE 101 - Automated Unit Tests for Week 01 Practice."""
 
 import math
+
 import pytest
+
 from exercises.week_01_intro.practice import (
     calculate_total_seconds,
     compute_sphere_volume,

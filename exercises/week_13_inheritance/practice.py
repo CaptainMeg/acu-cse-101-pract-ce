@@ -9,8 +9,8 @@ import random
 class Card:
     """Represents a standard playing card."""
 
-    suit_names = ["Clubs", "Diamonds", "Hearts", "Spades"]
-    rank_names = [
+    suit_names = ("Clubs", "Diamonds", "Hearts", "Spades")
+    rank_names = (
         None,
         "Ace",
         "2",
@@ -25,7 +25,7 @@ class Card:
         "Jack",
         "Queen",
         "King",
-    ]
+    )
 
     def __init__(self, suit: int = 0, rank: int = 2):
         self.suit = suit

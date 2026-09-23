@@ -1,6 +1,7 @@
 """ACU CSE 101 - Automated Unit Tests for Week 04 Practice."""
 
 import pytest
+
 from exercises.week_04_conditionals_recursion.practice import (
     factorial_recursive,
     fibonacci_recursive,

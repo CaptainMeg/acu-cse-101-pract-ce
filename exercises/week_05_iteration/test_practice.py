@@ -1,7 +1,9 @@
 """ACU CSE 101 - Automated Unit Tests for Week 05 Practice."""
 
 import math
+
 import pytest
+
 from exercises.week_05_iteration.practice import (
     collatz_sequence_length,
     is_prime,

@@ -1,0 +1,2 @@
+# ACU CSE 101: Core Requirements
+# The introductory course primarily relies on standard library Python 3.12+

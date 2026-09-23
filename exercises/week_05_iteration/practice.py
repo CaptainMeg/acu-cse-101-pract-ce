@@ -3,8 +3,6 @@
 Think Python: Chapter 7
 """
 
-import math
-
 
 def mysqrt(a: float, epsilon: float = 1e-7) -> float:
     """Compute square root of a using Newton's method."""

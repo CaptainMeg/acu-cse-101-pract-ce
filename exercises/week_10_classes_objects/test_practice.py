@@ -1,6 +1,7 @@
 """ACU CSE 101 - Automated Unit Tests for Week 10 Practice."""
 
 import pytest
+
 from exercises.week_10_classes_objects.practice import (
     Point,
     Rectangle,
