@@ -84,18 +84,29 @@ def select_week(repo_dir: str, requested_week: str | None) -> str:
 
 
 def run_tests(repo_dir: str, week: str) -> bool:
-    """Executes pytest for the specified week."""
-    test_file = os.path.join("exercises", week, "test_practice.py")
-    full_path = os.path.join(repo_dir, test_file)
+    """Executes pytest for the specified week's challenge test suite."""
+    week_dir = os.path.join("exercises", week)
+    full_path = os.path.join(repo_dir, week_dir)
 
-    if not os.path.isfile(full_path):
-        print(f"{RED}Error: Test file not found: {test_file}{RESET}", file=sys.stderr)
+    if not os.path.isdir(full_path):
+        print(
+            f"{RED}Error: Week directory not found: {week_dir}{RESET}",
+            file=sys.stderr,
+        )
         return False
 
-    print(f"\n{BOLD}{CYAN}🧪 Running Automated Tests for {week}...{RESET}\n")
+    challenge_test = os.path.join(week_dir, "test_challenge.py")
+    if os.path.isfile(os.path.join(repo_dir, challenge_test)):
+        target = challenge_test
+        print(
+            f"\n{BOLD}{CYAN}🧪 Running Automated Graded Challenge Tests ({challenge_test})...{RESET}\n"
+        )
+    else:
+        target = week_dir
+        print(f"\n{BOLD}{CYAN}🧪 Running Automated Tests for {week}...{RESET}\n")
 
     res = subprocess.run(
-        [sys.executable, "-m", "pytest", "-v", test_file],
+        [sys.executable, "-m", "pytest", "-v", target],
         cwd=repo_dir,
         check=False,
     )
