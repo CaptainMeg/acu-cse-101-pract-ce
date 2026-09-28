@@ -10,92 +10,108 @@
 import math  # noqa: F401
 
 # ------------------------------------------------------------------------------
-# Challenge 1: Interactive Temperature Converter
-# Prompt the user to enter a temperature in Celsius (as a float),
-# and calculate the corresponding temperature in Fahrenheit:
-#   F = C * (9/5) + 32
+# Challenge 1: Travel Currency Converter
+# A student is traveling abroad and exchanging Euros (EUR) to US Dollars (USD).
+# The exchange desk charges a 2% transaction fee on the gross USD amount.
 #
 # Task:
-# 1. Ask user for input: float(input("Enter Celsius: "))
-# 2. Calculate fahrenheit.
-# 3. Print the result: print("Fahrenheit:", fahrenheit)
+# 1. Prompt user for:
+#    - Amount in EUR (float): float(input("Enter amount in EUR: "))
+#    - Exchange rate (float): float(input("Enter exchange rate (EUR to USD): "))
+# 2. Calculate:
+#    - gross_usd = euros * rate
+#    - fee = gross_usd * 0.02
+#    - net_usd = gross_usd - fee
+# 3. Print the amounts formatted to 2 decimal places:
+#    print(f"Gross USD: ${gross_usd:.2f}")
+#    print(f"Fee: ${fee:.2f}")
+#    print(f"Net USD: ${net_usd:.2f}")
 # ------------------------------------------------------------------------------
 # TODO: Write your code for Challenge 1 below:
 
 
 # ------------------------------------------------------------------------------
-# Challenge 2: Interactive Running Pace & Speed
-# Think Python Exercise 1.2:
-# Prompt the user for:
-#   - Distance in kilometers (float)
-#   - Race time in minutes (int)
-#   - Race time in seconds (int)
+# Challenge 2: Pizza Party Slices & Leftovers
+# You are hosting a computer science pizza party!
+# Slices must be distributed evenly among all students, and any leftover
+# slices go to the hard-working TAs.
 #
 # Task:
-# 1. Read the 3 values using input() and type casting.
-# 2. Calculate total seconds: (minutes * 60) + seconds.
-# 3. Convert kilometers to miles (km / 1.61).
-# 4. Calculate average speed in miles per hour: miles / (total_seconds / 3600.0).
-# 5. Print both values:
-#    print("Total seconds:", total_seconds)
-#    print("Average speed (mph):", round(average_speed, 2))
+# 1. Prompt user for:
+#    - Number of students (int): int(input("Enter number of students: "))
+#    - Number of pizzas (int): int(input("Enter number of pizzas: "))
+#    - Slices per pizza (int): int(input("Enter slices per pizza: "))
+# 2. Calculate:
+#    - total_slices = pizzas * slices_per_pizza
+#    - slices_per_student = total_slices // students  (integer division)
+#    - leftover_slices = total_slices % students      (remainder / modulo)
+# 3. Print the results:
+#    print(f"Total slices: {total_slices}")
+#    print(f"Slices per student: {slices_per_student}")
+#    print(f"Leftover slices: {leftover_slices}")
 # ------------------------------------------------------------------------------
 # TODO: Write your code for Challenge 2 below:
 
 
 # ------------------------------------------------------------------------------
-# Challenge 3: Interactive Bookstore Wholesale Cost
+# Challenge 3: Sphere Geometry (Volume & Surface Area)
 # Think Python Exercise 2.2:
-# A bookstore orders copies of a textbook.
-# - Cover price is 4.95, but bookstores get a 40% discount (they pay 60%).
-# - Shipping costs .00 for the first copy, and bash.75 for each additional copy.
+# The volume of a sphere with radius r is (4/3) * pi * r^3,
+# and its surface area is 4 * pi * r^2.
 #
 # Task:
-# 1. Ask user for number of copies: int(input("Enter number of copies: "))
-# 2. Calculate total wholesale cost:
-#    discounted_price = 24.95 * 0.60 * copies
-#    shipping = 3.00 + (0.75 * (copies - 1))
-#    total_cost = discounted_price + shipping
-# 3. Print the total:
-#    print("Wholesale total:", round(total_cost, 2))
+# 1. Prompt user for:
+#    - Radius of the sphere (float): float(input("Enter sphere radius: "))
+# 2. Calculate volume and surface area using math.pi and the ** operator.
+# 3. Print the results formatted to 2 decimal places:
+#    print(f"Sphere Volume: {volume:.2f}")
+#    print(f"Sphere Surface Area: {surface_area:.2f}")
 # ------------------------------------------------------------------------------
 # TODO: Write your code for Challenge 3 below:
 
 
 # ------------------------------------------------------------------------------
-# Challenge 4: Right Triangle Hypotenuse
-# Prompt the user for the lengths of the two legs (a and b) of a right triangle,
-# and calculate the hypotenuse c using the Pythagorean theorem:
-#   c = sqrt(a^2 + b^2)
+# Challenge 4: 3-Cup Shell Game (Cyclic Variable Rotation)
+# In class we swapped 2 variables (a, b = b, a).
+# Now let's perform a 3-cup cyclic rotation in a single multiple assignment!
+# Cup A receives Cup C's item, Cup B receives Cup A's item, and Cup C receives Cup B's item.
 #
 # Task:
-# 1. Ask user for side a (float) and side b (float).
-# 2. Calculate hypotenuse using math.sqrt().
-# 3. Print the result:
-#    print("Hypotenuse:", round(hypotenuse, 2))
+# 1. Prompt user for:
+#    - Item in Cup A: input("Enter item in Cup A: ").strip()
+#    - Item in Cup B: input("Enter item in Cup B: ").strip()
+#    - Item in Cup C: input("Enter item in Cup C: ").strip()
+# 2. Perform the circular rotation in ONE assignment statement:
+#    cup_a, cup_b, cup_c = cup_c, cup_a, cup_b
+# 3. Print the rotated cups separated by ' -> ' using sep:
+#    print(cup_a, cup_b, cup_c, sep=" -> ")
 # ------------------------------------------------------------------------------
 # TODO: Write your code for Challenge 4 below:
 
 
 # ------------------------------------------------------------------------------
-# Challenge 5: Formatted Item Receipt (String Operations & F-Strings)
-# Practice string operations (concatenation, repetition, methods) and f-string
-# formatting for precision and alignment.
+# Challenge 5: Digital Event Badge Generator
+# Generate a formatted conference badge for attendees using string methods
+# (.strip, .title, .upper), string repetition (*), and character count (len).
 #
 # Task:
-# 1. Prompt the user for:
-#    - Item name (str): input("Enter item name: ")
-#    - Unit price (float): float(input("Enter unit price: "))
-#    - Quantity (int): int(input("Enter quantity: "))
-# 2. Clean the item name:
-#    - Strip any accidental whitespace: .strip()
-#    - Format in title case: .title()
-# 3. Calculate total cost: unit_price * quantity.
-# 4. Print a formatted receipt:
-#    - Print a border line of 30 equal signs: "=" * 30
-#    - Print the item and quantity: f"Item: {item_name} (x{quantity})"
-#    - Print the total cost formatted to 2 decimal places: f"Total: ${total_cost:.2f}"
-#    - Print the closing border line of 30 equal signs: "=" * 30
+# 1. Prompt user for:
+#    - Attendee full name (str): input("Enter attendee name: ").strip()
+#    - Department (str): input("Enter department: ").strip()
+#    - Role (str): input("Enter role: ").strip()
+# 2. Transform the text:
+#    - Format name in title case: name.title()
+#    - Format department in uppercase: dept.upper()
+#    - Format role in title case: role.title()
+# 3. Print the badge decorated with a 32-character border of '#' characters:
+#    border = "#" * 32
+#    print(border)
+#    print(f"NAME: {name}")
+#    print(f"DEPT: {dept}")
+#    print(f"ROLE: {role}")
+#    print(f"NAME LENGTH: {len(name)}")
+#    print(border)
 # ------------------------------------------------------------------------------
 # TODO: Write your code for Challenge 5 below:
+
 

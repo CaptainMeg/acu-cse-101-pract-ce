@@ -151,47 +151,81 @@ Prefix strings with `f` (e.g. `f"..."`) to interpolate variables and control dis
 
 Open [`challenge.py`](challenge.py) and solve these 5 challenges on your own:
 
-### Challenge 1: Interactive Temperature Converter
-- Prompt user for Celsius (float): `float(input("Enter Celsius: "))`
-- Convert to Fahrenheit: $F = C \times \frac{9}{5} + 32$
-- Print: `print("Fahrenheit:", fahrenheit)`
-
-### Challenge 2: Interactive Running Pace & Speed (*Think Python 1.2*)
+### Challenge 1: Travel Currency Converter
 - Prompt user for:
-  - Distance in kilometers (float)
-  - Race time in minutes (int)
-  - Race time in seconds (int)
-- Calculate total seconds and average speed in miles per hour ($1\text{ mile} = 1.61\text{ km}$).
-- Print:
+  - Amount in Euros (EUR): `float(input("Enter amount in EUR: "))`
+  - Exchange rate (EUR to USD): `float(input("Enter exchange rate (EUR to USD): "))`
+- The exchange desk charges a 2% fee on the gross USD:
+  - `gross_usd = euros * rate`
+  - `fee = gross_usd * 0.02`
+  - `net_usd = gross_usd - fee`
+- Print all three values formatted to 2 decimal places:
   ```python
-  print("Total seconds:", total_seconds)
-  print("Average speed (mph):", round(average_speed, 2))
+  print(f"Gross USD: ${gross_usd:.2f}")
+  print(f"Fee: ${fee:.2f}")
+  print(f"Net USD: ${net_usd:.2f}")
   ```
 
-### Challenge 3: Interactive Bookstore Wholesale Cost (*Think Python 2.2*)
-- Prompt user for number of copies: `int(input("Enter number of copies: "))`
-- Books cost $24.95 with 40% discount ($14.97 per copy).
-- Shipping is $3.00 for the first copy, and $0.75 for each additional copy.
-- Calculate and print total cost: `print("Wholesale total:", round(total_cost, 2))`
-
-### Challenge 4: Right Triangle Hypotenuse
-- Prompt user for side $a$ and side $b$ (as floats).
-- Calculate hypotenuse $c = \sqrt{a^2 + b^2}$ using `math.sqrt(...)`.
-- Print: `print("Hypotenuse:", round(hypotenuse, 2))`
-
-### Challenge 5: Formatted Item Receipt (String Operations & F-Strings)
+### Challenge 2: Pizza Party Slices & Leftovers
 - Prompt user for:
-  - Item name (`input("Enter item name: ")`)
-  - Unit price (`float(input("Enter unit price: "))`)
-  - Quantity (`int(input("Enter quantity: "))`)
-- Clean item name using `.strip().title()`.
-- Calculate total cost (`unit_price * quantity`).
-- Print the formatted receipt:
+  - Number of students: `int(input("Enter number of students: "))`
+  - Number of pizzas: `int(input("Enter number of pizzas: "))`
+  - Slices per pizza: `int(input("Enter slices per pizza: "))`
+- Calculate:
+  - `total_slices = pizzas * slices_per_pizza`
+  - Slices per student using integer division: `total_slices // students`
+  - Leftover slices for TAs using modulo: `total_slices % students`
+- Print:
   ```python
-  print("=" * 30)
-  print(f"Item: {item_name} (x{quantity})")
-  print(f"Total: ${total_cost:.2f}")
-  print("=" * 30)
+  print(f"Total slices: {total_slices}")
+  print(f"Slices per student: {slices_per_student}")
+  print(f"Leftover slices: {leftover_slices}")
+  ```
+
+### Challenge 3: Sphere Geometry (Volume & Surface Area) (*Think Python 2.2*)
+- Prompt user for sphere radius (float): `float(input("Enter sphere radius: "))`
+- Calculate:
+  - Volume: $V = \frac{4}{3} \pi r^3$ using `(4 / 3) * math.pi * (radius ** 3)`
+  - Surface area: $A = 4 \pi r^2$ using `4 * math.pi * (radius ** 2)`
+- Print both values formatted to 2 decimal places:
+  ```python
+  print(f"Sphere Volume: {volume:.2f}")
+  print(f"Sphere Surface Area: {surface_area:.2f}")
+  ```
+
+### Challenge 4: 3-Cup Shell Game (Cyclic Variable Rotation)
+- Prompt user for initial items inside 3 cups:
+  - `cup_a = input("Enter item in Cup A: ").strip()`
+  - `cup_b = input("Enter item in Cup B: ").strip()`
+  - `cup_c = input("Enter item in Cup C: ").strip()`
+- Perform a circular shift in a **single assignment statement**:
+  - Cup A gets Cup C's item
+  - Cup B gets Cup A's item
+  - Cup C gets Cup B's item
+- Print the rotated cups separated by `' -> '`:
+  ```python
+  cup_a, cup_b, cup_c = cup_c, cup_a, cup_b
+  print(cup_a, cup_b, cup_c, sep=" -> ")
+  ```
+
+### Challenge 5: Digital Event Badge Generator
+- Prompt user for:
+  - Attendee full name: `input("Enter attendee name: ").strip()`
+  - Department: `input("Enter department: ").strip()`
+  - Role: `input("Enter role: ").strip()`
+- Clean and format:
+  - `name = name.title()`
+  - `dept = dept.upper()`
+  - `role = role.title()`
+  - `border = "#" * 32`
+- Print the badge:
+  ```python
+  print(border)
+  print(f"NAME: {name}")
+  print(f"DEPT: {dept}")
+  print(f"ROLE: {role}")
+  print(f"NAME LENGTH: {len(name)}")
+  print(border)
   ```
 
 ---
