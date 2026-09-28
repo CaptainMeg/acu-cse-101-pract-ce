@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🚀 Submit Current Week Practice",
+      "type": "shell",
+      "command": "python3 scripts/submit.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "focus": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "🧪 Run Tests for Current Week",
+      "type": "shell",
+      "command": "python3 scripts/submit.py --test-only",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "🔄 Sync Course Materials with Upstream",
+      "type": "shell",
+      "command": "python3 scripts/sync_course.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "▶️ Run Current Python File",
+      "type": "shell",
+      "command": "python3 \"${file}\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}

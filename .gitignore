@@ -13,7 +13,7 @@ ENV/
 env/
 
 # IDE & Editor Settings
-.vscode/
+.vscode/*
 !.vscode/tasks.json
 !.vscode/settings.json
 !.vscode/launch.json

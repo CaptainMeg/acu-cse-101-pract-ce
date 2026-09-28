@@ -1,0 +1,33 @@
+{
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "python.defaultInterpreterPath": "/usr/local/bin/python",
+  "python.analysis.typeCheckingMode": "basic",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "exercises"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "tasks.statusBar": [
+    {
+      "label": "$(pass) Check My Code",
+      "task": "🧪 Run Tests for Current Week",
+      "tooltip": "Run automated unit tests to verify your code"
+    },
+    {
+      "label": "$(cloud-upload) Submit Practice",
+      "task": "🚀 Submit Current Week Practice",
+      "tooltip": "Submit your practice code to the TA review system"
+    },
+    {
+      "label": "$(sync) Sync Course",
+      "task": "🔄 Sync Course Materials with Upstream",
+      "tooltip": "Pull new weekly challenges from the course"
+    }
+  ]
+}
