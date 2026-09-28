@@ -49,9 +49,35 @@ def get_git_status(repo_dir: str) -> list[str]:
         return []
 
 
-def perform_auto_commit(repo_dir: str, changed_lines: list[str]) -> bool:
-    """Stages and commits changes in exercises/."""
+def get_current_branch(repo_dir: str) -> str:
+    """Return the name of the currently checked out git branch."""
     try:
+        res = subprocess.run(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            cwd=repo_dir,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        return res.stdout.strip() or "main"
+    except OSError:
+        return "main"
+
+
+def perform_auto_commit(repo_dir: str, changed_lines: list[str]) -> bool:
+    """Stages and commits changes in exercises/ to the workspace branch."""
+    try:
+        # Protect 'main' branch - ensure student work is always on 'workspace'
+        curr_branch = get_current_branch(repo_dir)
+        if curr_branch == "main":
+            subprocess.run(
+                ["git", "checkout", "-B", "workspace"],
+                cwd=repo_dir,
+                capture_output=True,
+                check=False,
+            )
+            print("🔀 Switched from 'main' to 'workspace' branch to keep main clean.")
+
         # 1. Stage exercises/
         subprocess.run(
             ["git", "add", "exercises/"],

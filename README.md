@@ -26,44 +26,66 @@ In your forked repository, click the green **Code** button, select the **Codespa
 
 ---
 
-## 🛡️ Zero Git Friction: Auto-Save & Auto-Commit
+## 🛡️ Zero Git Friction: Workspace Branch & Auto-Commit
 
-You don't need to memorize Git commands!
+You don't need to worry about complex Git commands!
+- **Dedicated `workspace` Branch**: Codespaces automatically places you on your personal `workspace` branch. Your local `main` branch stays clean and identical to the course upstream.
 - **Auto-Save**: VS Code automatically saves your files after 1 second of inactivity.
 - **Auto-Commit Daemon**: A background service automatically tracks and commits your work as you write code, so your progress is never lost.
 
 ---
 
-## 📅 Course Curriculum & Practice Modules
+## 📅 Course Curriculum & Progressive Weekly Releases
 
-| Week | Directory | Think Python Chapters | Topic Summary |
-|:---:|:---|:---|:---|
-| **01** | [`exercises/week_01_intro/`](exercises/week_01_intro/) | Ch. 1 & 2 | The Way of the Program & Basic Arithmetic |
-| **02** | [`exercises/week_02_variables/`](exercises/week_02_variables/) | Ch. 2 | Variables, Expressions and Statements |
-| **03** | [`exercises/week_03_functions/`](exercises/week_03_functions/) | Ch. 3 | Functions, Parameters and Return Values |
-| **04** | [`exercises/week_04_conditionals_recursion/`](exercises/week_04_conditionals_recursion/) | Ch. 5 | Conditionals, Booleans & Recursion |
-| **05** | [`exercises/week_05_iteration/`](exercises/week_05_iteration/) | Ch. 7 | Iteration, Loops, Newton's Square Root |
-| **06** | [`exercises/week_06_strings_lists/`](exercises/week_06_strings_lists/) | Ch. 8 & 10 | Strings, Indexing, Slicing & Lists |
-| **07** | *Midterm I Review* | Ch. 1–10 | Comprehensive Practice Review |
-| **08** | [`exercises/week_08_dictionaries_tuples/`](exercises/week_08_dictionaries_tuples/) | Ch. 11 & 12 | Dictionaries and Tuples |
-| **09** | [`exercises/week_09_files/`](exercises/week_09_files/) | Ch. 14 | File Reading, Writing and Exceptions |
-| **10** | [`exercises/week_10_classes_objects/`](exercises/week_10_classes_objects/) | Ch. 15 | Classes, Objects and 2D Geometry |
-| **11** | [`exercises/week_11_classes_functions/`](exercises/week_11_classes_functions/) | Ch. 16 | Classes, Time and Pure Functions |
-| **12** | [`exercises/week_12_classes_methods/`](exercises/week_12_classes_methods/) | Ch. 17 | Object-Oriented Methods & Operator Overloading |
-| **13** | [`exercises/week_13_inheritance/`](exercises/week_13_inheritance/) | Ch. 18 | Inheritance & Card Deck Polymorphism |
-| **14** | *Midterm II Review* | Ch. 11–18 | Comprehensive OOP & Data Structures Review |
-| **15** | *Final Project Prep* | All | Course Synthesis & Final Project |
+Exercises are released progressively week by week. Each week's challenge folder is kept in an independent release module:
+
+| Week | Directory | Think Python Chapters | Topic Summary | Status |
+|:---:|:---|:---|:---|:---:|
+| **01** | [`exercises/week_01_intro/`](exercises/week_01_intro/) | Ch. 1 & 2 | The Way of the Program & Basic Arithmetic | **Released** |
+| **02** | `exercises/week_02_variables/` | Ch. 2 | Variables, Expressions and Statements | *Weekly Release* |
+| **03** | `exercises/week_03_functions/` | Ch. 3 | Functions, Parameters and Return Values | *Weekly Release* |
+| **04** | `exercises/week_04_conditionals_recursion/` | Ch. 5 | Conditionals, Booleans & Recursion | *Weekly Release* |
+| **05** | `exercises/week_05_iteration/` | Ch. 7 | Iteration, Loops, Newton's Square Root | *Weekly Release* |
+| **06** | `exercises/week_06_strings_lists/` | Ch. 8 & 10 | Strings, Indexing, Slicing & Lists | *Weekly Release* |
+| **07** | *Midterm I Review* | Ch. 1–10 | Comprehensive Practice Review | *In Class* |
+| **08** | `exercises/week_08_dictionaries_tuples/` | Ch. 11 & 12 | Dictionaries and Tuples | *Weekly Release* |
+| **09** | `exercises/week_09_files/` | Ch. 14 | File Reading, Writing and Exceptions | *Weekly Release* |
+| **10** | `exercises/week_10_classes_objects/` | Ch. 15 | Classes, Objects and 2D Geometry | *Weekly Release* |
+| **11** | `exercises/week_11_classes_functions/` | Ch. 16 | Classes, Time and Pure Functions | *Weekly Release* |
+| **12** | `exercises/week_12_classes_methods/` | Ch. 17 | Object-Oriented Methods & Operator Overloading | *Weekly Release* |
+| **13** | `exercises/week_13_inheritance/` | Ch. 18 | Inheritance & Card Deck Polymorphism | *Weekly Release* |
+| **14** | *Midterm II Review* | Ch. 11–18 | Comprehensive OOP & Data Structures Review | *In Class* |
+| **15** | *Final Project Prep* | All | Course Synthesis & Final Project | *In Class* |
 
 ---
 
-## 🔄 Keeping Your Fork Updated
+## 🔄 Keeping Your Workspace Synced (Conflict-Free)
 
-As new weekly exercises and notes are published by the course staff, you can easily pull updates:
-- Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **Tasks: Run Task** → **`🔄 Sync Course Materials with Upstream`**.
-- Or run in terminal:
-  ```bash
-  python3 scripts/sync_course.py
-  ```
+When course instructors publish a new weekly challenge, sync it into your workspace with zero merge conflicts:
+
+1. Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on Mac).
+2. Choose **Tasks: Run Task** → **`🔄 Sync Course Materials with Upstream`**.
+   *(Alternatively, run `python3 scripts/sync_course.py` in the terminal).*
+
+**What happens behind the scenes:**
+- Your current edits in `exercises/` are safely auto-saved.
+- The latest `main` branch is fetched from the course upstream.
+- The newly published weekly directory is seamlessly merged into your `workspace` branch.
+- Your `workspace` and `main` branches are backed up to your GitHub fork (`origin`).
+
+---
+
+## 👨‍🏫 Instructor / TA Guide: Publishing a New Week
+
+All upcoming weekly modules are prepared on independent release branches (`release/week-XX-*`) that each touch **only** their respective week folder.
+
+To publish a new week (e.g. Week 2) to all students:
+```bash
+git checkout main
+git merge release/week-02-variables -m "Release: Week 02 Variables and Expressions"
+git push origin main
+```
+Students run the **`🔄 Sync Course Materials with Upstream`** task in their Codespaces to immediately receive the new week's exercises.
 
 ---
 

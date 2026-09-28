@@ -16,4 +16,7 @@ git config --global core.autocrlf input
 # Set execution permissions on scripts
 chmod +x scripts/*.py 2>/dev/null || true
 
+# Ensure student starts on the 'workspace' branch, keeping 'main' pristine
+git checkout -B workspace 2>/dev/null || true
+
 echo "✅ ACU CSE 101 Environment Ready!"

@@ -102,8 +102,32 @@ def run_tests(repo_dir: str, week: str) -> bool:
     return res.returncode == 0
 
 
+def get_current_branch(repo_dir: str) -> str:
+    """Return the name of the currently checked out git branch."""
+    try:
+        res = subprocess.run(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            cwd=repo_dir,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        return res.stdout.strip() or "main"
+    except OSError:
+        return "main"
+
+
 def ensure_committed(repo_dir: str):
     """Ensure all current work in exercises is committed."""
+    curr_branch = get_current_branch(repo_dir)
+    if curr_branch == "main":
+        subprocess.run(
+            ["git", "checkout", "-B", "workspace"],
+            cwd=repo_dir,
+            check=False,
+        )
+        print("🔀 Switched to 'workspace' branch to keep 'main' clean.")
+
     subprocess.run(["git", "add", "exercises/"], cwd=repo_dir, check=False)
     status = subprocess.run(
         ["git", "status", "--porcelain", "exercises/"],
@@ -123,6 +147,13 @@ def ensure_committed(repo_dir: str):
 def handle_submission(repo_dir: str, week: str):
     """Creates a submission branch and opens or pushes the pull request."""
     ensure_committed(repo_dir)
+
+    original_branch = get_current_branch(repo_dir)
+    if original_branch == "main":
+        subprocess.run(
+            ["git", "checkout", "-B", "workspace"], cwd=repo_dir, check=False
+        )
+        original_branch = "workspace"
 
     branch_name = f"submit/{week}"
     print(f"\n{BOLD}{CYAN}🚀 Preparing Submission Branch: {branch_name}{RESET}")
@@ -189,6 +220,10 @@ def handle_submission(repo_dir: str, week: str):
             print(
                 "To finish creating your Pull Request, visit your GitHub repository page and click 'Compare & Pull Request'."
             )
+
+    # Return back to working branch
+    print(f"\n↩️  Returning to working branch '{original_branch}'...")
+    subprocess.run(["git", "checkout", original_branch], cwd=repo_dir, check=False)
 
 
 def main():
