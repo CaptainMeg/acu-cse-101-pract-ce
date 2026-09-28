@@ -12,6 +12,22 @@
         "editor.insertSpaces": true,
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "terminal.integrated.defaultProfile.linux": "bash",
+        "git.enabled": false,
+        "git.decorations.enabled": false,
+        "scm.diffDecorations": "none",
+        "github.copilot.enable": {
+          "*": false
+        },
+        "github.copilot.editor.enableCodeActions": false,
+        "chat.commandCenter.enabled": false,
+        "inlineChat.enable": false,
+        "extensions.ignoreRecommendations": true,
+        "extensions.autoCheckUpdates": false,
+        "extensions.autoUpdate": false,
+        "workbench.startupEditor": "none",
+        "workbench.tips.enabled": false,
+        "workbench.welcomePage.walkthroughs.openOnInstall": false,
+        "telemetry.telemetryLevel": "off",
         "python.testing.pytestEnabled": true,
         "python.testing.pytestArgs": [
           "exercises"
@@ -20,19 +36,24 @@
         "python.testing.autoTestDiscoverOnSaveEnabled": true,
         "tasks.statusBar": [
           {
-            "label": "$(pass) Check My Code",
-            "task": "🧪 Run Tests for Current Week",
+            "label": "$(pass) Run Tests",
+            "task": "Run Tests",
             "tooltip": "Run automated unit tests to verify your code"
           },
           {
-            "label": "$(cloud-upload) Submit Practice",
-            "task": "🚀 Submit Current Week Practice",
+            "label": "$(cloud-upload) Submit",
+            "task": "Submit",
             "tooltip": "Submit your practice code to the TA review system"
           },
           {
             "label": "$(sync) Sync Course",
-            "task": "🔄 Sync Course Materials with Upstream",
+            "task": "Sync Course",
             "tooltip": "Pull new weekly challenges from the course"
+          },
+          {
+            "label": "$(play) Play",
+            "task": "Play",
+            "tooltip": "Run current Python file"
           }
         ]
       },
@@ -40,7 +61,6 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-python.debugpy",
-        "eamodio.gitlens",
         "actboy168.tasks"
       ]
     }

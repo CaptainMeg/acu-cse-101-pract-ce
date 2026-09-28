@@ -8,7 +8,7 @@ This repository is aligned with the textbook **_Think Python_ by Allen B. Downey
 
 ---
 
-## ⚡ Quickstart (Get Coding in 2 Minutes)
+## Quickstart (Get Coding in 2 Minutes)
 
 ### Step 1: Fork this Repository
 Click the **Fork** button at the top-right of this repository page to create your personal copy under your GitHub account.
@@ -17,24 +17,16 @@ Click the **Fork** button at the top-right of this repository page to create you
 In your forked repository, click the green **Code** button, select the **Codespaces** tab, and click **Create codespace on main**.
 *(Everything is pre-installed for you: Python 3.12, VS Code extensions, test runners, and auto-save).*
 
-### Step 3: Start Coding & Check with 1 Click (No Shell Required!)
+### Step 3: Start Coding & Check
 1. Open the current week's folder in the left sidebar: [`exercises/week_01_intro/practice.py`](exercises/week_01_intro/practice.py).
 2. Write your code and calculations directly in `practice.py`.
 3. Check and submit your answers using the **clickable GUI buttons**:
-   - **Click `Check My Code`** in the bottom blue status bar (or click the **🧪 Testing icon** in the left sidebar) to check if your answers are correct!
+   - **Click `Play`** in the bottom blue status bar (or click the **🧪 Testing icon** in the left sidebar) to check if your answers are correct!
    - **Click `Submit Practice`** in the bottom status bar when all checks are green to send your work to the TAs for review!
    - **Click `Sync Course`** in the bottom status bar whenever a new week's exercises are published!
 
 ---
 
-## 🛡️ Zero Git Friction: Workspace Branch & Auto-Commit
-
-You don't need to worry about complex Git commands!
-- **Dedicated `workspace` Branch**: Codespaces automatically places you on your personal `workspace` branch. Your local `main` branch stays clean and identical to the course upstream.
-- **Auto-Save**: VS Code automatically saves your files after 1 second of inactivity.
-- **Auto-Commit Daemon**: A background service automatically tracks and commits your work as you write code, so your progress is never lost.
-
----
 
 ## 📅 Course Curriculum & Progressive Weekly Releases
 
@@ -65,31 +57,5 @@ Exercises are released progressively week by week. Each week's challenge folder 
 When course instructors publish a new weekly challenge, sync it into your workspace with zero merge conflicts:
 
 1. Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on Mac).
-2. Choose **Tasks: Run Task** → **`🔄 Sync Course Materials with Upstream`**.
+2. Choose **Tasks: Run Task** → **`Sync Course`**.
    *(Alternatively, run `python3 scripts/sync_course.py` in the terminal).*
-
-**What happens behind the scenes:**
-- Your current edits in `exercises/` are safely auto-saved.
-- The latest `main` branch is fetched from the course upstream.
-- The newly published weekly directory is seamlessly merged into your `workspace` branch.
-- Your `workspace` and `main` branches are backed up to your GitHub fork (`origin`).
-
----
-
-## 👨‍🏫 Instructor / TA Guide: Publishing a New Week
-
-All upcoming weekly modules are prepared on independent release branches (`release/week-XX-*`) that each touch **only** their respective week folder.
-
-To publish a new week (e.g. Week 2) to all students:
-```bash
-git checkout main
-git merge release/week-02-variables -m "Release: Week 02 Variables and Expressions"
-git push origin main
-```
-Students run the **`🔄 Sync Course Materials with Upstream`** task in their Codespaces to immediately receive the new week's exercises.
-
----
-
-## 🔒 Student Privacy Policy
-- This repository contains **NO** private student identification numbers, full rosters, or sensitive grading records.
-- Automated Pull Request feedback comments only report code correctness and test results. Official academic grade books are maintained confidentially by course instructors and TAs.
