@@ -12,6 +12,20 @@
         "editor.insertSpaces": true,
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "terminal.integrated.defaultProfile.linux": "bash",
+        "files.exclude": {
+          "**/.git": true,
+          "**/.svn": true,
+          "**/.hg": true,
+          "**/CVS": true,
+          "**/.DS_Store": true,
+          "**/Thumbs.db": true,
+          "scripts": true,
+          ".devcontainer": true,
+          ".pytest_cache": true,
+          "pytest.ini": true,
+          "requirements.txt": true,
+          "requirements-dev.txt": true
+        },
         "git.enabled": false,
         "git.decorations.enabled": false,
         "scm.diffDecorations": "none",
@@ -67,5 +81,5 @@
   },
 
   "postCreateCommand": "bash .devcontainer/post_create.sh",
-  "postStartCommand": "python3 scripts/auto_commit_daemon.py &"
+  "postStartCommand": "python3 scripts/auto_commit_daemon.py > /dev/null 2>&1 &"
 }

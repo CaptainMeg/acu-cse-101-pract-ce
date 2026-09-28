@@ -49,8 +49,54 @@ def test_fahrenheit_conversion_output():
     )
 
 
-def test_seconds_calculation_output():
-    """Verify that total seconds for 42 minutes 42 seconds (2562) is printed."""
+def test_float_isclose_output():
+    """Verify that math.isclose(0.1 + 0.2, 0.3) comparison (True) is printed."""
+    res = run_student_script()
+    stdout = res.stdout.lower()
+
+    assert "true" in stdout, (
+        "Expected 'True' from math.isclose(0.1 + 0.2, 0.3) not found in stdout.\n"
+        f"Your output was:\n{res.stdout}"
+    )
+
+
+def test_decimal_exact_output():
+    """Verify that Decimal('0.1') + Decimal('0.2') == Decimal('0.3') is printed."""
+    res = run_student_script()
+    stdout = res.stdout
+
+    assert "0.3" in stdout, (
+        "Expected exact decimal sum '0.3' from Decimal('0.1') + Decimal('0.2') not found in stdout.\n"
+        f"Your output was:\n{res.stdout}"
+    )
+
+
+def test_multiple_assignment_swap_output():
+    """Verify that multiple assignment swapping (a=34, b=12) is printed."""
+    res = run_student_script()
+    stdout = res.stdout.lower().replace(" ", "")
+
+    # Expected swapped values: a=34, b=12
+    assert "a=34" in stdout and "b=12" in stdout, (
+        "Expected swapped values 'a=34' and 'b=12' not found in stdout.\n"
+        f"Your output was:\n{res.stdout}"
+    )
+
+
+def test_chained_assignment_rebinding_output():
+    """Verify that chained assignment rebinding (x=60, y=50) is printed."""
+    res = run_student_script()
+    stdout = res.stdout.lower().replace(" ", "")
+
+    # Expected values after rebinding x: x=60, y=50
+    assert "x=60" in stdout and "y=50" in stdout, (
+        "Expected rebound values 'x=60' and 'y=50' not found in stdout.\n"
+        f"Your output was:\n{res.stdout}"
+    )
+
+
+def test_seconds_and_running_speed_output():
+    """Verify that total seconds (2562) and average speed (~8.73 mph) are printed."""
     res = run_student_script()
     stdout = res.stdout
 
@@ -60,15 +106,27 @@ def test_seconds_calculation_output():
         f"Your output was:\n{res.stdout}"
     )
 
+    # 10 km = 6.21118 miles; 42m42s = 0.71167 hours -> ~8.7276 mph
+    found_speed = any(val in stdout for val in ["8.72", "8.73"])
+    assert found_speed, (
+        "Expected average speed (~8.73 mph) not found in stdout.\n"
+        f"Your output was:\n{res.stdout}"
+    )
 
-def test_sphere_volume_output():
-    """Verify that the volume of a sphere with radius 5 (~523.598) is printed."""
+
+def test_geometry_sphere_and_hypotenuse_output():
+    """Verify that sphere volume (~523.6) and right triangle hypotenuse (5.0) are printed."""
     res = run_student_script()
     stdout = res.stdout
 
-    # (4/3) * pi * 125 = 523.5987...
-    found = any(val in stdout for val in ["523.59", "523.60", "523.6"])
-    assert found, (
+    # Sphere volume: (4/3) * pi * 125 = 523.5987...
+    found_vol = any(val in stdout for val in ["523.59", "523.60", "523.6"])
+    assert found_vol, (
         "Expected sphere volume (~523.6) not found in stdout.\n"
         f"Your output was:\n{res.stdout}"
+    )
+
+    # Hypotenuse: sqrt(3^2 + 4^2) = 5.0
+    assert "5.0" in stdout or "5" in stdout, (
+        f"Expected hypotenuse 5.0 not found in stdout.\nYour output was:\n{res.stdout}"
     )
