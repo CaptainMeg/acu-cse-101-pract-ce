@@ -30,12 +30,24 @@ Open [`practice.py`](practice.py) and complete the three exercises:
 
 ---
 
-## 🧪 Testing Your Code
-Run the tests locally using the VS Code task **"🧪 Run Tests for Current Week"** or in the terminal:
-```bash
-pytest exercises/week_01_intro/test_practice.py
-```
-*(The automated test runner executes your script and checks what gets printed to standard output!)*
+## 🧪 Checking Your Answers (No Terminal Required!)
 
-## 🚀 Submitting
-When all tests pass, run **"🚀 Submit Current Week Practice"** from the VS Code Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+You can check whether your answers are correct with a single mouse click:
+
+1. **Option A: Bottom Status Bar Button (Easiest)**
+   - Look at the blue bar at the bottom of your VS Code window.
+   - Click the **`Check My Code`** button!
+   - A drawer will slide open showing which exercises passed or what needs fixing.
+
+2. **Option B: The 🧪 Testing Tab in the Left Sidebar**
+   - Click the **🧪 (Flask/Beaker) icon** in the left sidebar.
+   - Click the **▶️ Run Tests** button at the top.
+   - Your tests will light up **Green (✅)** or **Red (❌)** right next to each exercise name.
+
+3. **Option C: See What Your Code Prints**
+   - While viewing `practice.py`, click the **▶️ (Play Button)** in the top-right corner of your editor window.
+
+---
+
+## 🚀 Submitting Your Practice
+When all your checks turn green, click the **`Submit Practice`** button in the bottom status bar to submit your solutions for TA review!

@@ -17,12 +17,13 @@ Click the **Fork** button at the top-right of this repository page to create you
 In your forked repository, click the green **Code** button, select the **Codespaces** tab, and click **Create codespace on main**.
 *(Everything is pre-installed for you: Python 3.12, VS Code extensions, test runners, and auto-save).*
 
-### Step 3: Start Coding & Submit
-1. Navigate to the current week's folder in the left sidebar (e.g. `exercises/week_01_intro/`).
-2. Read the instructions in `README.md` and complete the functions in `practice.py`.
-3. Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on Mac), choose **Tasks: Run Task**, and select:
-   - **`🧪 Run Tests for Current Week`**: Checks if your code passes all unit tests.
-   - **`🚀 Submit Current Week Practice`**: Submits your practice solutions and opens a Pull Request for TA review!
+### Step 3: Start Coding & Check with 1 Click (No Shell Required!)
+1. Open the current week's folder in the left sidebar: [`exercises/week_01_intro/practice.py`](exercises/week_01_intro/practice.py).
+2. Write your code and calculations directly in `practice.py`.
+3. Check and submit your answers using the **clickable GUI buttons**:
+   - **Click `Check My Code`** in the bottom blue status bar (or click the **🧪 Testing icon** in the left sidebar) to check if your answers are correct!
+   - **Click `Submit Practice`** in the bottom status bar when all checks are green to send your work to the TAs for review!
+   - **Click `Sync Course`** in the bottom status bar whenever a new week's exercises are published!
 
 ---
 
