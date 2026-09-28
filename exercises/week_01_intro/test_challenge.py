@@ -14,7 +14,8 @@ CHALLENGE_FILE = os.path.join(os.path.dirname(__file__), "challenge.py")
 # Challenge 2: 10.0 (km), 42 (minutes), 42 (seconds)
 # Challenge 3: 60 (book copies)
 # Challenge 4: 3.0 (side a), 4.0 (side b)
-SAMPLE_INPUT = "37.0\n10.0\n42\n42\n60\n3.0\n4.0\n"
+# Challenge 5: "  notebook  " (item), 4.50 (price), 3 (quantity)
+SAMPLE_INPUT = "37.0\n10.0\n42\n42\n60\n3.0\n4.0\n  notebook  \n4.50\n3\n"
 
 
 def run_student_challenge(simulated_input: str = SAMPLE_INPUT) -> subprocess.CompletedProcess:
@@ -85,3 +86,19 @@ def test_challenge_4_hypotenuse():
     assert "5.0" in stdout or "5" in stdout, (
         f"Expected hypotenuse 5.0 for legs 3.0 and 4.0 not found in stdout.\nYour output was:\n{res.stdout}"
     )
+
+
+def test_challenge_5_receipt_formatting():
+    """Verify Challenge 5: Receipt formatted with border lines, title case, and .2f precision."""
+    res = run_student_challenge()
+    stdout = res.stdout
+    assert "=" * 30 in stdout, (
+        f"Expected border line of 30 '=' characters ('=' * 30) not found in stdout.\nYour output was:\n{res.stdout}"
+    )
+    assert "Notebook" in stdout, (
+        f"Expected cleaned title-cased item name 'Notebook' not found in stdout.\nYour output was:\n{res.stdout}"
+    )
+    assert "13.50" in stdout, (
+        f"Expected total cost '13.50' (formatted with .2f) not found in stdout.\nYour output was:\n{res.stdout}"
+    )
+

@@ -6,7 +6,7 @@ Welcome to your first Python practice! In this module, you will practice writing
 > [!NOTE]
 > **Two Files in this Module:**
 > 1. [`practice.py`](practice.py): **In-Class Guided Workshop**. Follow along with your instructor/TA to explore `input()`, type casting, and variable mechanics.
-> 2. [`challenge.py`](challenge.py): **Independent Graded Homework**. Complete these 4 challenges on your own for your course grade!
+> 2. [`challenge.py`](challenge.py): **Independent Graded Homework**. Complete these 5 challenges on your own for your course grade!
 
 ---
 
@@ -92,9 +92,64 @@ x = x + 10  # Only x changes to 60; y is STILL 50!
 
 ---
 
+### 4. String Operations & Formatting for `print()`
+
+#### String Operations (`+`, `*`, `len`):
+- **Concatenation (`+`)**: Joins strings together without extra spaces:
+  ```python
+  greeting = "Hello, " + "Ada!"  # "Hello, Ada!"
+  ```
+- **Repetition (`*`)**: Multiplies a string by an integer to repeat it:
+  ```python
+  border = "=" * 30  # "=============================="
+  ```
+- **Length (`len()`)**: Returns the count of characters (including spaces):
+  ```python
+  len("Python")  # 6
+  ```
+- **Common String Methods**:
+  - `name.strip()`: Removes leading and trailing spaces.
+  - `name.lower()`: Converts to lowercase (`"ada"`).
+  - `name.upper()`: Converts to uppercase (`"ADA"`).
+  - `name.title()`: Capitalizes each word (`"Ada Lovelace"`).
+
+#### String Formatting with F-Strings:
+Prefix strings with `f` (e.g. `f"..."`) to interpolate variables and control display formatting:
+- **Floating-point precision (`:.2f`)**:
+  ```python
+  price = 19.999
+  print(f"${price:.2f}")  # $20.00 (rounded to 2 decimal places)
+  ```
+- **Percentage formatting (`:.1%`)**:
+  ```python
+  tax = 0.08
+  print(f"Tax: {tax:.1%}")  # Tax: 8.0%
+  ```
+- **Field alignment and width**:
+  - `<15`: Left-align in 15 spaces.
+  - `>8`: Right-align in 8 spaces.
+  ```python
+  print(f"{'Notebook':<15} | ${13.50:>8.2f}")
+  ```
+
+#### `print()` Keyword Arguments: `sep` and `end`:
+- **`sep` (Separator)**: Changes what is printed between multiple arguments (default is space `" "`):
+  ```python
+  print("Python", "CSE101", "Acibadem", sep=" :: ")
+  # Output: Python :: CSE101 :: Acibadem
+  ```
+- **`end` (Ending)**: Changes the ending character (default is newline `\n`):
+  ```python
+  print("Processing", end="... ")
+  print("Done!")
+  # Output: Processing... Done!
+  ```
+
+---
+
 ## 🏆 Graded Homework Challenges: `challenge.py`
 
-Open [`challenge.py`](challenge.py) and solve these 4 challenges on your own:
+Open [`challenge.py`](challenge.py) and solve these 5 challenges on your own:
 
 ### Challenge 1: Interactive Temperature Converter
 - Prompt user for Celsius (float): `float(input("Enter Celsius: "))`
@@ -123,6 +178,21 @@ Open [`challenge.py`](challenge.py) and solve these 4 challenges on your own:
 - Prompt user for side $a$ and side $b$ (as floats).
 - Calculate hypotenuse $c = \sqrt{a^2 + b^2}$ using `math.sqrt(...)`.
 - Print: `print("Hypotenuse:", round(hypotenuse, 2))`
+
+### Challenge 5: Formatted Item Receipt (String Operations & F-Strings)
+- Prompt user for:
+  - Item name (`input("Enter item name: ")`)
+  - Unit price (`float(input("Enter unit price: "))`)
+  - Quantity (`int(input("Enter quantity: "))`)
+- Clean item name using `.strip().title()`.
+- Calculate total cost (`unit_price * quantity`).
+- Print the formatted receipt:
+  ```python
+  print("=" * 30)
+  print(f"Item: {item_name} (x{quantity})")
+  print(f"Total: ${total_cost:.2f}")
+  print("=" * 30)
+  ```
 
 ---
 

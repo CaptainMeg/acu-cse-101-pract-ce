@@ -11,6 +11,8 @@
 # 5. Exact decimal arithmetic for financial calculations (Decimal)
 # 6. Multiple assignment & variable swapping (a, b = b, a)
 # 7. Chained assignment (x = y = 50) and independent re-binding
+# 8. String operations (+ concatenation, * repetition, len, methods)
+# 9. String formatting for print() (f-string precision, alignment, sep & end)
 # ==============================================================================
 
 import math
@@ -85,3 +87,50 @@ print(f"Swapped: a={a}, b={b}")
 x = y = 50
 x = x + 10  # Only x changes, y stays 50!
 print(f"Rebound: x={x}, y={y}")
+
+
+# ------------------------------------------------------------------------------
+# Part 9: String Operations (+, *, len, and string methods)
+# Strings can be joined with +, repeated with *, and measured with len().
+# Methods like .upper(), .lower(), and .title() return transformed copies.
+# ------------------------------------------------------------------------------
+first_name = "ada"
+last_name = "lovelace"
+full_name = (first_name + " " + last_name).title()
+greeting_banner = "=" * 30
+
+print(greeting_banner)
+print("Full Name (title case):", full_name)
+print("Uppercase version:", full_name.upper())
+print("Character count:", len(full_name))
+print(greeting_banner)
+
+
+# ------------------------------------------------------------------------------
+# Part 10: String Formatting for print() (f-strings, precision & print parameters)
+# F-strings allow precision formatting (:.2f), column alignment (<, >),
+# and print() supports custom separators (sep) and line endings (end).
+# ------------------------------------------------------------------------------
+product = "Textbook"
+price = 49.9567
+tax_rate = 0.08
+quantity = 3
+total = price * quantity
+
+# 1. Precision & Percentages in f-strings:
+print(f"Product: {product}")
+print(f"Formatted Price: ${price:.2f}")  # Rounds to 2 decimal places: $49.96
+print(f"Tax Rate: {tax_rate:.1%}")  # Formats as percentage: 8.0%
+print(f"Total: ${total:.2f}")
+
+# 2. Alignment & Column Widths:
+# '<15' left-aligns in 15 chars; '>9.2f' right-aligns in 9 chars
+print(f"{'Item':<15} | {'Qty':>4} | {'Subtotal':>10}")
+print("-" * 35)
+print(f"{product:<15} | {quantity:>4} | ${total:>9.2f}")
+
+# 3. Custom print() separators (sep) and line endings (end):
+print("Python", "CSE101", "Acibadem", sep=" :: ")
+print("Saving progress", end="... ")
+print("Done!")
+

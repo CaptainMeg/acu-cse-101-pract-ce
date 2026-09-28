@@ -3,7 +3,7 @@
 # Think Python: Chapters 1 & 2
 #
 # GRADED INDEPENDENT CHALLENGE:
-# Complete the 4 challenges below on your own.
+# Complete the 5 challenges below on your own.
 # Run tests with the 'Run Tests' button or pytest to verify your solutions!
 # ==============================================================================
 
@@ -75,3 +75,27 @@ import math  # noqa: F401
 #    print("Hypotenuse:", round(hypotenuse, 2))
 # ------------------------------------------------------------------------------
 # TODO: Write your code for Challenge 4 below:
+
+
+# ------------------------------------------------------------------------------
+# Challenge 5: Formatted Item Receipt (String Operations & F-Strings)
+# Practice string operations (concatenation, repetition, methods) and f-string
+# formatting for precision and alignment.
+#
+# Task:
+# 1. Prompt the user for:
+#    - Item name (str): input("Enter item name: ")
+#    - Unit price (float): float(input("Enter unit price: "))
+#    - Quantity (int): int(input("Enter quantity: "))
+# 2. Clean the item name:
+#    - Strip any accidental whitespace: .strip()
+#    - Format in title case: .title()
+# 3. Calculate total cost: unit_price * quantity.
+# 4. Print a formatted receipt:
+#    - Print a border line of 30 equal signs: "=" * 30
+#    - Print the item and quantity: f"Item: {item_name} (x{quantity})"
+#    - Print the total cost formatted to 2 decimal places: f"Total: ${total_cost:.2f}"
+#    - Print the closing border line of 30 equal signs: "=" * 30
+# ------------------------------------------------------------------------------
+# TODO: Write your code for Challenge 5 below:
+

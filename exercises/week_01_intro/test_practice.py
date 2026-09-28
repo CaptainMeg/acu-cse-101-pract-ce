@@ -99,3 +99,40 @@ def test_chained_assignment_rebinding_output():
     assert "x=60" in stdout and "y=50" in stdout, (
         f"Expected rebound values x=60 and y=50 not found in stdout.\nYour output was:\n{res.stdout}"
     )
+
+
+def test_string_operations_output():
+    """Verify string operations: concatenation, repetition, len, and case transformations."""
+    res = run_student_script()
+    stdout = res.stdout
+    assert "Ada Lovelace" in stdout, (
+        f"Expected 'Ada Lovelace' in title case output.\nYour output was:\n{res.stdout}"
+    )
+    assert "ADA LOVELACE" in stdout, (
+        f"Expected 'ADA LOVELACE' in uppercase output.\nYour output was:\n{res.stdout}"
+    )
+    assert "12" in stdout, (
+        f"Expected character count 12 in output.\nYour output was:\n{res.stdout}"
+    )
+    assert "=" * 30 in stdout, (
+        f"Expected border banner of 30 '=' characters.\nYour output was:\n{res.stdout}"
+    )
+
+
+def test_string_formatting_and_print_output():
+    """Verify f-string precision (:.2f, :.1%), sep, and end print parameters."""
+    res = run_student_script()
+    stdout = res.stdout
+    assert "49.96" in stdout, (
+        f"Expected formatted price 49.96 (from 49.9567 rounded) in stdout.\nYour output was:\n{res.stdout}"
+    )
+    assert "8.0%" in stdout, (
+        f"Expected formatted percentage 8.0% in stdout.\nYour output was:\n{res.stdout}"
+    )
+    assert "Python :: CSE101 :: Acibadem" in stdout, (
+        f"Expected custom separator 'Python :: CSE101 :: Acibadem' in stdout.\nYour output was:\n{res.stdout}"
+    )
+    assert "Saving progress... Done!" in stdout, (
+        f"Expected 'Saving progress... Done!' with custom end parameter.\nYour output was:\n{res.stdout}"
+    )
+
